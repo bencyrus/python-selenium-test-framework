@@ -6,6 +6,8 @@ from page_objects.base_page import BasePage
 
 # LoginPage is a class that contains all the methods that are used in the login page.
 class LoginPage(BasePage):
+    # The __url, __email_field, __password_field and __login_button variables
+    # are used to store the locators of the elements in the page.
     __url = "https://automationexercise.com/login"
     __email_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='email']")
     __password_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='password']")
