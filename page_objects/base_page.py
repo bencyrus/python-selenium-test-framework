@@ -23,6 +23,11 @@ class BasePage:
     def _wait_for_element(self, locator: tuple, timeout: int = 10):
         WebDriverWait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
 
+    # The _get_text method is used to get the text of an element.
+    def _get_text(self, locator: tuple, timeout: int = 10) -> str:
+        self._wait_for_element(locator, timeout)
+        return self._find(locator).text
+
     # The _type method is used to type text in a text field.
     def _type(self, locator: tuple, text: str, timeout: int = 10):
         self._wait_for_element(locator, timeout)

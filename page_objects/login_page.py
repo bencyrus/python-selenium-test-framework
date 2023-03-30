@@ -19,7 +19,7 @@ class LoginPage(BasePage):
 
     # The open method is used to open the login page. This method calls the open_url method of the BasePage class.
     def open(self):
-        super().open_url(self.__url)
+        super()._open_url(self.__url)
 
     # The execute_login method is used to execute a login in the application.
     # This method calls the _type and _click methods of the BasePage class.
