@@ -12,6 +12,7 @@ class LoginPage(BasePage):
     __email_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='email']")
     __password_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='password']")
     __login_button = (By.XPATH, "//div[contains(@class, 'login-form')]//button[@type='submit']")
+    __login_failed_message = (By.XPATH, "//div[contains(@class, 'login-form')]//p[contains(text(), 'Your email or password is incorrect!')]")
 
     # The constructor of the class receives the driver as a parameter.
     def __init__(self, driver: WebDriver):
@@ -29,3 +30,7 @@ class LoginPage(BasePage):
         super()._type(self.__email_field, email)
         super()._type(self.__password_field, password)
         super()._click(self.__login_button)
+
+    def check_login_failed_message(self):
+        print("The login failed message is: " + super()._get_text(self.__login_failed_message))
+        return super()._is_displayed(self.__login_failed_message)
