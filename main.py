@@ -8,8 +8,8 @@ if __name__ == "__main__":
     
     # Run success login test
     with webdriver.Chrome() as driver:
-        login_test.test_success_login(driver)
+        login_test.test_login_with_valid_credentials(driver)
     
     # Run fail login test
     with webdriver.Chrome() as driver:
-        login_test.test_fail_login(driver)
+        login_test.test_login_with_invalid_credentials(driver)

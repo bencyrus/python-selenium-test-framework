@@ -2,49 +2,28 @@ from page_objects.logged_in_main_page import LoggedInMainPage
 from page_objects.login_page import LoginPage
 
 
-# TestLoginPage is a class that contains all the methods that are used to test the login functionality.
 class TestLoginPage:
-    # The test_success_login method is used to test the login functionality.
-    def test_success_login(self, driver):
-        # Try to log in with valid credentials
+    """Test cases for the login functionality."""
 
-        # Create an instance of the LoginPage class
-        login_page = LoginPage(driver)
+    def test_login_with_valid_credentials(self, driver):
+        """Test logging in with valid credentials."""
+        login_page = LoginPage(driver)  # create an instance of the LoginPage class
+        login_page.open()  # open the login page
+        login_page.execute_login("mahdi.mohaghegh2001@gmail.com", "12345678")  # execute a login
+        logged_in_main_page = LoggedInMainPage(driver)  # create an instance of the LoggedInMainPage class
 
-        # Open the login page
-        login_page.open()
+        # verify that the user is logged in
+        actual_user_name = logged_in_main_page.get_user_name()
+        expected_user_name = "Ben Cyrus"
+        assert logged_in_main_page.expected_user_name(expected_user_name) == actual_user_name, \
+            f"Expected user name '{expected_user_name}' but got {actual_user_name}"
+        assert logged_in_main_page.is_logout_button_visible(), "The logout button is not visible"
 
-        # Execute a login
-        login_page.execute_login("mahdi.mohaghegh2001@gmail.com", "12345678")
+    def test_login_with_invalid_credentials(self, driver):
+        """Test logging in with invalid credentials."""
+        login_page = LoginPage(driver)  # create an instance of the LoginPage class
+        login_page.open()  # open the login page
+        login_page.execute_login("invalid_mahdi.mohaghegh2001@gmail.com", "invalid_12345678")  # execute a login with invalid credentials
 
-        # Verify that the user is logged in
-
-        # Create an instance of the LoggedInMainPage class
-        logged_in_main_page = LoggedInMainPage(driver)
-
-        # Verify that the user's name is correct
-        assert logged_in_main_page.expected_user_name("Ben Cyrus") == logged_in_main_page.get_user_name(), \
-            "The user's name is not correct"
-
-        # Verify that the logout button is visible
-        assert logged_in_main_page.is_logout_button_visible(), \
-            "The logout button is not visible"
-
-    # The test_fail_login method is used to test the login functionality with invalid credentials.
-    def test_fail_login(self, driver):
-        # Try to log in with invalid credentials
-
-        # Create an instance of the LoginPage class
-        login_page = LoginPage(driver)
-
-        # Open the login page
-        login_page.open()
-
-        # Execute a login
-        login_page.execute_login("invalid_mahdi.mohaghegh2001@gmail.com", "invalid_12345678")
-
-        # Verify that the user is not logged in
-
-        # Verify that the login failed message is visible
-        assert login_page.check_login_failed_message(), \
-            "The login failed message is not visible"
+        # verify that the user is not logged in
+        assert login_page.is_login_failed_message_displayed(), "The login failed message is not visible"
