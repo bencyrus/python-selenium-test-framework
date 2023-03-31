@@ -21,9 +21,9 @@ def test_positive_login(self, driver):
     logged_in_main_page = LoggedInMainPage(driver)
 
     # Verify that the user's name is correct
-    assert logged_in_main_page.expected_user_name() == logged_in_main_page.get_user_name(),\
+    assert logged_in_main_page.expected_user_name() == logged_in_main_page.get_user_name(), \
         "The user's name is not correct"
 
     # Verify that the logout button is visible
-    assert logged_in_main_page.is_logout_button_visible(),\
+    assert logged_in_main_page.is_logout_button_visible(), \
         "The logout button is not visible"
