@@ -1,36 +1,31 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
 
 
-# LoginPage is a class that contains all the methods that are used in the login page.
 class LoginPage(BasePage):
-    # The __url, __email_field, __password_field and __login_button variables
-    # are used to store the locators of the elements in the page.
-    __url = "https://automationexercise.com/login"
-    __email_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='email']")
-    __password_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='password']")
-    __login_button = (By.XPATH, "//div[contains(@class, 'login-form')]//button[@type='submit']")
-    __login_failed_message = (By.XPATH, "//div[contains(@class, 'login-form')]//p[contains(text(), 'Your email or password is incorrect!')]")
+    # A class that contains all the methods that are used in the login page.
 
-    # The constructor of the class receives the driver as a parameter.
-    def __init__(self, driver: WebDriver):
+    __URL = "https://automationexercise.com/login"
+    __EMAIL_FIELD = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='email']")
+    __PASSWORD_FIELD = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='password']")
+    __LOGIN_BUTTON = (By.XPATH, "//div[contains(@class, 'login-form')]//button[@type='submit']")
+    __LOGIN_FAILED_MESSAGE = (By.XPATH, "//div[contains(@class, 'login-form')]"
+                                        "//p[contains(text(), 'Your email or password is incorrect!')]")
+
+    def __init__(self, driver):
         super().__init__(driver)
 
-    # Public methods
-
-    # The open method is used to open the login page. This method calls the open_url method of the BasePage class.
     def open(self):
-        super()._open_url(self.__url)
+        # Opens the login page.
+        super()._open_url(self.__URL)
 
-    # The execute_login method is used to execute a login in the application.
-    # This method calls the _type and _click methods of the BasePage class.
     def execute_login(self, email, password):
-        super()._type(self.__email_field, email)
-        super()._type(self.__password_field, password)
-        super()._click(self.__login_button)
+        # Executes a login in the application.
+        super()._type(self.__EMAIL_FIELD, email)
+        super()._type(self.__PASSWORD_FIELD, password)
+        super()._click(self.__LOGIN_BUTTON)
 
-    def check_login_failed_message(self):
-        print("The login failed message is: " + super()._get_text(self.__login_failed_message))
-        return super()._is_displayed(self.__login_failed_message)
+    def is_login_failed_message_displayed(self):
+        # Returns True if the login failed message is displayed; otherwise, False.
+        return super()._is_displayed(self.__LOGIN_FAILED_MESSAGE)
