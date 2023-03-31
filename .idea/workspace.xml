@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_objects/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/base_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_objects/logged_in_main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/logged_in_main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/login_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
       <updated>1680270767928</updated>
       <workItem from="1680270769033" duration="1914000" />
       <workItem from="1680275007017" duration="903000" />
-      <workItem from="1680293582511" duration="4053000" />
+      <workItem from="1680293582511" duration="4780000" />
     </task>
     <servers />
   </component>

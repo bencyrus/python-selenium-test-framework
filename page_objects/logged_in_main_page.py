@@ -1,4 +1,3 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
@@ -11,7 +10,7 @@ class LoggedInMainPage(BasePage):
     __LOGOUT_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'logout')]")
     __USER_NAME = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(text(), 'Logged in as')]/b")
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         super().__init__(driver)
 
     def open(self):

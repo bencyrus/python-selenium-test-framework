@@ -1,4 +1,3 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
@@ -14,7 +13,7 @@ class LoginPage(BasePage):
     __LOGIN_FAILED_MESSAGE = (By.XPATH, "//div[contains(@class, 'login-form')]"
                                         "//p[contains(text(), 'Your email or password is incorrect!')]")
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         super().__init__(driver)
 
     def open(self):

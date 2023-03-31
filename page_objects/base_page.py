@@ -1,4 +1,3 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -9,7 +8,7 @@ class BasePage:
     # BasePage is a class that contains all the common methods that are used in all the pages
     # of the application. This class is inherited by all the page objects.
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         self.driver = driver
 
     def _open_url(self, url: str) -> None:
