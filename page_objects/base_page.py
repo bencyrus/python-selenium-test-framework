@@ -14,6 +14,10 @@ class BasePage:
 
     # Private methods
 
+    # The _open_url method is used to open a URL in the browser.
+    def _open_url(self, url: str):
+        self.driver.get(url)
+
     # The _find method is used to find an element in the page.
     def _find(self, locator: tuple) -> WebElement:
         # The * operator is used to unpack the tuple and pass the two parameters to the find_element method.
@@ -39,14 +43,8 @@ class BasePage:
         self._wait_for_element(locator, timeout)
         self._find(locator).click()
 
-    # Public methods
-
-    # The open_url method is used to open a URL in the browser.
-    def open_url(self, url: str):
-        self.driver.get(url)
-
-    # The is_displayed method is used to check if an element is displayed in the page.
-    def is_displayed(self, locator: tuple, timeout: int = 10) -> bool:
+    # The _is_displayed method is used to check if an element is displayed in the page.
+    def _is_displayed(self, locator: tuple, timeout: int = 10) -> bool:
         try:
             self._wait_for_element(locator, timeout)
             return self._find(locator).is_displayed()
