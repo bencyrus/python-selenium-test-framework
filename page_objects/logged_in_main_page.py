@@ -23,13 +23,15 @@ class LoggedInMainPage(BasePage):
         super().open_url(self.__url)
 
     # The expected_user_name method is used to give public access to the __user_name variable.
-    def expected_user_name(self):
-        return self.__user_name
+    def expected_user_name(self, user_name):
+        print("The expected user's name is: " + user_name)
+        return user_name
 
     # The get_user_name method is used to get the user's name of the logged in user.
     def get_user_name(self):
-        return super().get_text(self.__user_name)
+        print("The user's name is: " + super()._get_text(self.__user_name))
+        return super()._get_text(self.__user_name)
 
     # The is_logout_button_visible method is used to check if the logout button is visible.
     def is_logout_button_visible(self):
-        return super().is_displayed(self.__logout_button)
+        return super()._is_displayed(self.__logout_button)

@@ -42,6 +42,7 @@ class BasePage:
     def _click(self, locator: tuple, timeout: int = 10):
         self._wait_for_element(locator, timeout)
         self._find(locator).click()
+        print("Clicked on element with locator: " + str(locator[1]))
 
     # The _is_displayed method is used to check if an element is displayed in the page.
     def _is_displayed(self, locator: tuple, timeout: int = 10) -> bool:
