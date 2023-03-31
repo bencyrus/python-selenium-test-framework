@@ -1,39 +1,31 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
+
+from page_objects.base_page import BasePage
 
 
-class LoginPage:
+# LoginPage is a class that contains all the methods that are used in the login page.
+class LoginPage(BasePage):
+    # The __url, __email_field, __password_field and __login_button variables
+    # are used to store the locators of the elements in the page.
     __url = "https://automationexercise.com/login"
     __email_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='email']")
     __password_field = (By.XPATH, "//div[contains(@class, 'login-form')]//input[@name='password']")
     __login_button = (By.XPATH, "//div[contains(@class, 'login-form')]//button[@type='submit']")
 
+    # The constructor of the class receives the driver as a parameter.
     def __init__(self, driver: WebDriver):
-        self.driver = driver
+        super().__init__(driver)
 
+    # Public methods
+
+    # The open method is used to open the login page. This method calls the open_url method of the BasePage class.
     def open(self):
-        self.driver.get(self.__url)
+        super()._open_url(self.__url)
 
-    def enter_email(self, email):
-        self.driver.find_element_by_id(self.__email_field).clear()
-        self.driver.find_element_by_id(self.__email_field).send_keys(email)
-
-    def enter_password(self, password):
-        self.driver.find_element_by_id(self.__password_field).clear()
-        self.driver.find_element_by_id(self.__password_field).send_keys(password)
-
-    def click_login(self):
-        self.driver.find_element_by_id(self.__login_button).click()
-
-    def execute_login(self, username, password):
-        wait = WebDriverWait(self.driver, 10)
-
-        wait.until(ec.visibility_of_element_located(self.__email_field))
-        self.enter_email(username)
-        wait.until(ec.visibility_of_element_located(self.__password_field))
-        self.enter_password(password)
-        wait.until(ec.visibility_of_element_located(self.__login_button))
-        self.click_login()
-
+    # The execute_login method is used to execute a login in the application.
+    # This method calls the _type and _click methods of the BasePage class.
+    def execute_login(self, email, password):
+        super()._type(self.__email_field, email)
+        super()._type(self.__password_field, password)
+        super()._click(self.__login_button)
