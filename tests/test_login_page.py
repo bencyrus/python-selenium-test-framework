@@ -3,10 +3,10 @@ from page_objects.login_page import LoginPage
 
 
 class TestLoginPage:
-    """Test cases for the login functionality."""
+    # Test cases for the login functionality.
 
     def test_login_with_valid_credentials(self, driver):
-        """Test logging in with valid credentials."""
+        # Test logging in with valid credentials.
         login_page = LoginPage(driver)  # create an instance of the LoginPage class
         login_page.open()  # open the login page
         login_page.execute_login("mahdi.mohaghegh2001@gmail.com", "12345678")  # execute a login
@@ -20,7 +20,7 @@ class TestLoginPage:
         assert logged_in_main_page.is_logout_button_visible(), "The logout button is not visible"
 
     def test_login_with_invalid_credentials(self, driver):
-        """Test logging in with invalid credentials."""
+        # Test logging in with invalid credentials.
         login_page = LoginPage(driver)  # create an instance of the LoginPage class
         login_page.open()  # open the login page
         login_page.execute_login("invalid_mahdi.mohaghegh2001@gmail.com", "invalid_12345678")  # execute a login with invalid credentials
