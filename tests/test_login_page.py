@@ -4,7 +4,7 @@ from page_objects.login_page import LoginPage
 
 # TestLoginPage is a class that contains all the methods that are used to test the login functionality.
 class TestLoginPage:
-    # The test_positive_login method is used to test the login functionality.
+    # The test_success_login method is used to test the login functionality.
     def test_success_login(self, driver):
         # Try to log in with valid credentials
 
@@ -29,3 +29,22 @@ class TestLoginPage:
         # Verify that the logout button is visible
         assert logged_in_main_page.is_logout_button_visible(), \
             "The logout button is not visible"
+
+    # The test_fail_login method is used to test the login functionality with invalid credentials.
+    def test_fail_login(self, driver):
+        # Try to log in with invalid credentials
+
+        # Create an instance of the LoginPage class
+        login_page = LoginPage(driver)
+
+        # Open the login page
+        login_page.open()
+
+        # Execute a login
+        login_page.execute_login("invalid_mahdi.mohaghegh2001@gmail.com", "invalid_12345678")
+
+        # Verify that the user is not logged in
+
+        # Verify that the login failed message is visible
+        assert login_page.check_login_failed_message(), \
+            "The login failed message is not visible"
