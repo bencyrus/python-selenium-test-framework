@@ -1,3 +1,5 @@
+import random
+
 from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
@@ -10,7 +12,9 @@ class ProductPage(BasePage):
     __SEARCH_FIELD = (By.XPATH, "//input[@name='search']")
     __SEARCH_BUTTON = (By.XPATH, "//button[@id='submit_search']")
     __SEARCHED_PRODUCT_TITLE = (By.XPATH, "//h2[contains(text(), 'Searched Products')]")
-    __PRODUCT_SEARCH_RESULTS = (By.XPATH, "//div[contains(@class, 'product-image-wrapper')]")
+    __PRODUCT_SEARCH_RESULTS = (By.XPATH, "//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')]")
+    __ADDED_PRODUCT_TO_CART_MODAL = (By.XPATH, "//div[contains(@id, 'cartModal')]")
+    __CONTINUE_SHOPPING_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//button[contains(text(), 'Continue Shopping')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -36,4 +40,13 @@ class ProductPage(BasePage):
         # Returns True if the searched product is displayed; otherwise, False.
         return super()._is_displayed(self.__PRODUCT_SEARCH_RESULTS)
     
-    
+    def add_products_to_cart(self, quantity):
+        # Adds a specified quantity of a product to the cart
+        products = super()._find_elements(self.__PRODUCT_SEARCH_RESULTS) # find all the products
+        selected_products = random.sample(products, quantity) # select a random sample of products
+
+        for product in selected_products:
+            product.click() # add the product to the cart
+            super()._wait_for_element_to_be_visible(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
+            super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
+  

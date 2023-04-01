@@ -19,5 +19,12 @@ class TestProductPage:
         product_page.execute_product_search("tshirt") # execute a product search for "tshirt"
         assert product_page.is_searched_products_title_displayed(), "The searched products title is not visible" # verify that the searched products title is displayed
         assert product_page.is_product_search_results_displayed("shirt"), "The product search results are not visible" # verify that the product search results are displayed
-        
+
         print("Search product test passed") # print a test success message
+
+    def test_add_products_to_cart(self, driver):
+        # Test adding a product to the cart.
+        product_page = ProductPage(driver)
+        product_page.open()
+        product_page.execute_product_search("tshirt")
+        product_page.add_products_to_cart(2)

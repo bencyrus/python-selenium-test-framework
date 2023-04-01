@@ -27,3 +27,6 @@ if __name__ == "__main__":
     with webdriver.Chrome() as driver: # create a Chrome driver instance
         product_test.test_search_product(driver) # run the test_search_product method
     
+    # Run add product to cart test
+    with webdriver.Chrome() as driver: # create a Chrome driver instance
+        product_test.test_add_products_to_cart(driver) # run the test_add_product_to_cart method
