@@ -19,6 +19,8 @@ class TestLoginPage:
             f"Expected user name '{expected_user_name}' but got {actual_user_name}"
         assert logged_in_main_page.is_logout_button_visible(), "The logout button is not visible"
 
+        print("Login with valid credentials test passed") # print a test success message
+
     def test_login_with_invalid_credentials(self, driver):
         # Test logging in with invalid credentials.
         login_page = LoginPage(driver)  # create an instance of the LoginPage class
@@ -27,3 +29,5 @@ class TestLoginPage:
 
         # verify that the user is not logged in
         assert login_page.is_login_failed_message_displayed(), "The login failed message is not visible"
+
+        print("Login with invalid credentials test passed") # print a test success message
