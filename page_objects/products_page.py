@@ -5,7 +5,7 @@ from page_objects.base_page import BasePage
 class ProductPage(BasePage):
     # A class that contains all the methods that are used in the product page.
 
-    __URL = "https://automationexercise.com/product"
+    __URL = "https://automationexercise.com/products"
     __ALL_PRODUCTS_TITLE = (By.XPATH, "//h2[contains(text(), 'All Products')]")
     __SEARCH_FIELD = (By.XPATH, "//input[@name='search']")
     __SEARCH_BUTTON = (By.XPATH, "//button[@id='submit_search']")
