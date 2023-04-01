@@ -15,4 +15,15 @@ if __name__ == "__main__":
     with webdriver.Chrome() as driver: # create a Chrome driver instance
         login_test.test_login_with_invalid_credentials(driver) # run the test_login_with_invalid_credentials method
 
+
+    # Run the product tests
+    product_test = TestProductPage() # create an instance of the TestProductPage class
+
+    # Run all products displayed test
+    with webdriver.Chrome() as driver: # create a Chrome driver instance
+        product_test.test_all_products_displayed(driver) # run the test_all_products_displayed method
+    
+    # Run search product test
+    with webdriver.Chrome() as driver: # create a Chrome driver instance
+        product_test.test_search_product(driver) # run the test_search_product method
     
