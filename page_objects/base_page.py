@@ -1,3 +1,5 @@
+from typing import List
+
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -19,7 +21,7 @@ class BasePage:
         # Finds an element in the page.
         return self.driver.find_element(*locator)
     
-    def _find_elements(self, locator: tuple) -> WebElement:
+    def _find_elements(self, locator: tuple) -> List[WebElement]:
         # Finds elements in the page.
         return self.driver.find_elements(*locator)
 

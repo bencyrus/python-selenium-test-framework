@@ -28,3 +28,5 @@ class TestProductPage:
         product_page.open()
         product_page.execute_product_search("tshirt")
         product_page.add_products_to_cart(2)
+
+        print("Add products to cart test passed") # print a test success message

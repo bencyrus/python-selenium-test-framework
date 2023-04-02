@@ -46,7 +46,7 @@ class ProductPage(BasePage):
         selected_products = random.sample(products, quantity) # select a random sample of products
 
         for product in selected_products:
-            product.click() # add the product to the cart
-            super()._wait_for_element_to_be_visible(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
+            super()._click(product) # click the product
+            super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
             super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
   
