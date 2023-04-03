@@ -13,6 +13,7 @@ class ProductPage(BasePage):
     __PRODUCT_SEARCH_RESULTS = (By.XPATH, "(//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')])")
     __ADDED_PRODUCT_TO_CART_MODAL = (By.XPATH, "//div[contains(@id, 'cartModal')]")
     __CONTINUE_SHOPPING_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//button[contains(text(), 'Continue Shopping')]")
+    __VIEW_CART_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//a[contains(@href, 'view_cart')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -46,4 +47,6 @@ class ProductPage(BasePage):
             super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
             super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
 
-  
+    def view_cart(self):
+        # Clicks the view cart button.
+        super()._click(self.__VIEW_CART_BUTTON)
