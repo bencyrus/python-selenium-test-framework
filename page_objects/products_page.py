@@ -1,5 +1,3 @@
-import random
-
 from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
@@ -36,14 +34,14 @@ class ProductPage(BasePage):
         # Returns True if the searched product is displayed; otherwise, False.
         return super()._is_displayed(self.__SEARCHED_PRODUCT_TITLE)
     
-    def is_product_search_results_displayed(self, product_name):
+    def is_product_search_results_displayed(self):
         # Returns True if the searched product is displayed; otherwise, False.
         return super()._is_displayed(self.__PRODUCT_SEARCH_RESULTS)
     
     def add_products_to_cart(self, quantity):
         # Adds a specified quantity of a product to the cart
         for i in range(quantity):
-            xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{i+1}]"
+            xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{i+2}]"
             super()._click((By.XPATH, xpath)) # click the product
             super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
             super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
