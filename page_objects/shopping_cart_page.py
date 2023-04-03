@@ -1,6 +1,7 @@
 from page_objects.base_page import BasePage
 
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 class ShoppingCartPage(BasePage):
     # A class that contains all the methods that are used in the shopping cart page.
@@ -17,9 +18,11 @@ class ShoppingCartPage(BasePage):
 
     def is_cart_empty(self):
         # Returns True if the cart is empty; otherwise, False.
-        return super()._is_displayed(self.__CART_EMPTY_MESSAGE)
+        try:
+            return super()._is_displayed(self.__CART_EMPTY_MESSAGE)
+        except TimeoutException:
+            return False
     
-    def delete_item_from_cart(self, item_name):
+    def delete_item_from_cart(self):
         # Deletes an item from the cart.
-        xpath = f"//td[contains(text(), '{item_name}')]/following-sibling::td//a[contains(text(), 'Delete')]"
-        super()._click((By.XPATH, xpath))
+        super()._click(self.__ITEM_TO_DELETE)

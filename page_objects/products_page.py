@@ -13,7 +13,7 @@ class ProductPage(BasePage):
     __PRODUCT_SEARCH_RESULTS = (By.XPATH, "(//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')])")
     __ADDED_PRODUCT_TO_CART_MODAL = (By.XPATH, "//div[contains(@id, 'cartModal')]")
     __CONTINUE_SHOPPING_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//button[contains(text(), 'Continue Shopping')]")
-    __VIEW_CART_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//a[contains(@href, 'view_cart')]")
+    __VIEW_CART_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'view_cart')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -39,13 +39,12 @@ class ProductPage(BasePage):
         # Returns True if the searched product is displayed; otherwise, False.
         return super()._is_displayed(self.__PRODUCT_SEARCH_RESULTS)
     
-    def add_products_to_cart(self, quantity):
-        # Adds a specified quantity of a product to the cart
-        for i in range(quantity):
-            xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{i+2}]"
-            super()._click((By.XPATH, xpath)) # click the product
-            super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
-            super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
+    def add_product_to_cart(self, product_index):
+        # Adds a specified product to the cart.
+        xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{product_index+2}]"
+        super()._click((By.XPATH, xpath)) # click the product
+        super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
+        super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
 
     def view_cart(self):
         # Clicks the view cart button.

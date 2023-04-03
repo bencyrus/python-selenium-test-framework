@@ -1,4 +1,5 @@
 from page_objects.products_page import ProductPage
+from page_objects.shopping_cart_page import ShoppingCartPage
 
 
 class TestProductPage:
@@ -22,11 +23,15 @@ class TestProductPage:
 
         print("Search product test passed") # print a test success message
 
-    def test_add_products_to_cart(self, driver):
+    def test_add_product_to_cart(self, driver):
         # Test adding a product to the cart.
         product_page = ProductPage(driver)
         product_page.open()
         product_page.execute_product_search("tshirt")
-        product_page.add_products_to_cart(2)
+        product_page.add_product_to_cart(0)
+        product_page.add_product_to_cart(1)
+        product_page.view_cart()
+        shopping_cart_page = ShoppingCartPage(driver)
+        assert not shopping_cart_page.is_cart_empty(), "The cart is empty"
 
         print("Add products to cart test passed") # print a test success message
