@@ -12,7 +12,7 @@ class ProductPage(BasePage):
     __SEARCH_FIELD = (By.XPATH, "//input[@name='search']")
     __SEARCH_BUTTON = (By.XPATH, "//button[@id='submit_search']")
     __SEARCHED_PRODUCT_TITLE = (By.XPATH, "//h2[contains(text(), 'Searched Products')]")
-    __PRODUCT_SEARCH_RESULTS = (By.XPATH, "//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')]")
+    __PRODUCT_SEARCH_RESULTS = (By.XPATH, "(//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')])")
     __ADDED_PRODUCT_TO_CART_MODAL = (By.XPATH, "//div[contains(@id, 'cartModal')]")
     __CONTINUE_SHOPPING_BUTTON = (By.XPATH, "//div[contains(@id, 'cartModal')]//button[contains(text(), 'Continue Shopping')]")
 
@@ -42,11 +42,10 @@ class ProductPage(BasePage):
     
     def add_products_to_cart(self, quantity):
         # Adds a specified quantity of a product to the cart
-        products = super()._find_elements(self.__PRODUCT_SEARCH_RESULTS) # find all the products
-        selected_products = random.sample(products, quantity) # select a random sample of products
-
-        for product in selected_products:
-            super()._click(product) # click the product
+        for i in range(quantity):
+            xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{i+1}]"
+            super()._click((By.XPATH, xpath)) # click the product
             super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL) # wait for the modal to be displayed
             super()._click(self.__CONTINUE_SHOPPING_BUTTON) # click the continue shopping button
+
   
