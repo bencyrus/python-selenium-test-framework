@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cee95eb-be0c-47de-b57e-927b5d3bff98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/environment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/task1/features/main_page.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/task1/steps/steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/task1/test_pages/test_main_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_objects/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/base_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_objects/logged_in_main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/logged_in_main_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_objects/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/logged_in_main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/task1/" />
+      <recent name="$PROJECT_DIR$/tests/task1" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

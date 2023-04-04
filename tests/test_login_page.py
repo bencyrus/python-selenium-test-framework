@@ -1,4 +1,4 @@
-from page_objects.logged_in_main_page import LoggedInMainPage
+from page_objects.main_page import MainPage
 from page_objects.login_page import LoginPage
 
 
@@ -10,7 +10,7 @@ class TestLoginPage:
         login_page = LoginPage(driver)  # create an instance of the LoginPage class
         login_page.open()  # open the login page
         login_page.execute_login("mahdi.mohaghegh2001@gmail.com", "12345678")  # execute a login
-        logged_in_main_page = LoggedInMainPage(driver)  # create an instance of the LoggedInMainPage class
+        logged_in_main_page = MainPage(driver)  # create an instance of the LoggedInMainPage class
 
         # verify that the user is logged in
         actual_user_name = logged_in_main_page.get_user_name()
