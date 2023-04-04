@@ -47,4 +47,4 @@ class TestProductPage:
         shopping_cart_page = ShoppingCartPage(driver)
         shopping_cart_page.proceed_to_checkout()
         
-        print("Checkout test passed")
+        print("Proceed to checkout test passed")

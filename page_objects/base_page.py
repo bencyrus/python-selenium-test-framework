@@ -53,3 +53,13 @@ class BasePage:
             return self._find_element(locator).is_displayed()
         except NoSuchElementException:
             return False
+        
+    def _scroll_to_element(self, locator: tuple, timeout: int = 10) -> None:
+        # Scrolls to an element.
+        self._wait_for_visible_element(locator, timeout)
+        element = self._find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def _wait(self, seconds: int) -> None:
+        # Waits for a number of seconds.
+        self.driver.implicitly_wait(seconds)

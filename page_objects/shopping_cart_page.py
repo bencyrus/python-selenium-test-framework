@@ -21,7 +21,7 @@ class ShoppingCartPage(BasePage):
     def is_cart_empty(self):
         # Returns True if the cart is empty; otherwise, False.
         try:
-            return super()._is_displayed(self.__CART_EMPTY_MESSAGE)
+            return super()._is_displayed(self.__CART_EMPTY_MESSAGE, 1)
         except TimeoutException:
             return False
     
@@ -31,7 +31,6 @@ class ShoppingCartPage(BasePage):
 
     def proceed_to_checkout(self):
         # Clicks the checkout button.
-        super()._click(self.__CHECKOUT_BUTTON)
         super()._click(self.__CHECKOUT_BUTTON)
 
     def is_checkout_modal_displayed(self):

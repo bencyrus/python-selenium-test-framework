@@ -17,4 +17,5 @@ class CheckoutPage(BasePage):
 
     def execute_place_order(self):
         # Executes a product search in the application.
+        super()._scroll_to_element(self.__PLACE_ORDER_BUTTON)
         super()._click(self.__PLACE_ORDER_BUTTON)
