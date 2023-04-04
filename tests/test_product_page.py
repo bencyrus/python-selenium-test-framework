@@ -1,6 +1,5 @@
 from page_objects.products_page import ProductPage
 from page_objects.shopping_cart_page import ShoppingCartPage
-from page_objects.login_page import LoginPage
 
 
 class TestProductPage:
