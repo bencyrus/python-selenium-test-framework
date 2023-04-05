@@ -17,6 +17,10 @@ class BasePage:
         # Opens a URL in the browser.
         self.driver.get(url)
 
+    def _get_current_url(self) -> str:
+        # Returns the current URL.
+        return self.driver.current_url
+
     def _find_element(self, locator: tuple) -> WebElement:
         # Finds an element in the page.
         return self.driver.find_element(*locator)
