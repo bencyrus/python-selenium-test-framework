@@ -64,6 +64,6 @@ class BasePage:
         element = self._find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    def _wait(self, seconds: int) -> None:
+    def _wait(self, seconds: int = 3) -> None:
         # Waits for a number of seconds.
         self.driver.implicitly_wait(seconds)

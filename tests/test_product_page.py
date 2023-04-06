@@ -1,4 +1,4 @@
-from page_objects.products_page import ProductPage
+from page_objects.products_page import ProductsPage
 from page_objects.shopping_cart_page import ShoppingCartPage
 
 
@@ -7,7 +7,7 @@ class TestProductPage:
 
     def test_all_products_displayed(self, driver):
         # Test that all products are displayed.
-        product_page = ProductPage(driver) # create an instance of the ProductPage class
+        product_page = ProductsPage(driver) # create an instance of the ProductPage class
         product_page.open() # open the product page
         assert product_page.is_all_products_title_displayed(), "The all products title is not visible" # verify that the all products title is displayed
 
@@ -15,7 +15,7 @@ class TestProductPage:
 
     def test_search_product(self, driver):
         # Test searching a product.
-        product_page = ProductPage(driver) # create an instance of the ProductPage class
+        product_page = ProductsPage(driver) # create an instance of the ProductPage class
         product_page.open() # open the product page
         product_page.execute_product_search("tshirt") # execute a product search for "tshirt"
         assert product_page.is_searched_products_title_displayed(), "The searched products title is not visible" # verify that the searched products title is displayed
@@ -25,7 +25,7 @@ class TestProductPage:
 
     def test_add_product_to_cart(self, driver):
         # Test adding a product to the cart.
-        product_page = ProductPage(driver) # create an instance of the ProductPage class
+        product_page = ProductsPage(driver) # create an instance of the ProductPage class
         product_page.add_product_to_cart(0)
         product_page.add_product_to_cart(1)
         product_page.view_cart()

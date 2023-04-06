@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cee95eb-be0c-47de-b57e-927b5d3bff98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/environment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/shopping_cart.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/steps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/steps/login_steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/steps/product_seslection_steps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_objects/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/products_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/products_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

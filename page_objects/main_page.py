@@ -5,11 +5,12 @@ from page_objects.base_page import BasePage
 
 # A class that contains all the methods that are used in the main page of the application.
 class MainPage(BasePage):
-
     __URL = "https://automationexercise.com/"
     __LOGOUT_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'logout')]")
     __USER_NAME = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(text(), 'Logged in as')]/b")
     __PAGE_TITLE = (By.XPATH, "//section[contains(@id, 'slider')]//span[contains(text(), 'Automation')]")
+    __PRODUCTS_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'products')]")
+
     def __init__(self, driver):
         super().__init__(driver)
 
@@ -35,7 +36,7 @@ class MainPage(BasePage):
 
     def is_main_page_url_correct(self):
         # Returns a boolean indicating whether the main page URL is correct.
-        return self.__URL in self.driver.current_url
+        return self.__URL == self.driver.current_url
 
     def is_user_name_correct(self, user_name):
         # Returns a boolean indicating whether the user's name is correct.
@@ -43,11 +44,14 @@ class MainPage(BasePage):
 
     def is_main_page_title_correct(self, expected_title):
         # Returns a boolean indicating whether the main page title is correct.
-        actual_title = super()._get_text(self.__PAGE_TITLE)
-        print(f"The expected title is: {expected_title}")
-        print(f"The actual title is: {actual_title}")
+        return super()._get_text(self.__PAGE_TITLE) == expected_title
 
-        assert expected_title in actual_title, \
-            f"Expected title '{expected_title}' but got {actual_title}"
-
-        print("The main page title is correct.")
+    def open_products_page(self):
+        # Opens the products page.
+        super()._click(self.__PRODUCTS_BUTTON)
+        super()._wait(5)
+        if "#google_vignette" in self.driver.current_url:
+            print("Ad displayed")
+            print("the element: ", super()._find_element((By.XPATH, "//div[contains(@id, 'dismiss-button')]")))
+            super()._click((By.XPATH, "//div[contains(@id, 'dismiss-button')]"))
+            print("Clicked on the ad")
