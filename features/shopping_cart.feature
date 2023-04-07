@@ -23,9 +23,23 @@ Feature: Shopping Cart
     When I add the product number 2 to the cart
     Then I should be able to view the cart
 
-  Scenario: Remove 1 T-shirt from the cart
+  Scenario: Remove 1 T-shirt from the cart and proceed to checkout
     Given I am on the shopping cart page
     And The cart is not empty
     When I remove the product number 1 from the cart
     Then I should be able to proceed to checkout
+    Then I should be able to place the order
+
+  Scenario: Pay with a credit card
+    Given I am on the payment page
+    When I enter the credit card information with the following details
+      | field       | value            |
+      | card holder | Ben Cyrus        |
+      | card number | 4242424242424242 |
+      | cvv         | 123              |
+      | expiry month| 12               |
+      | expiry year | 2026             |
+    Then I should be able to confirm and pay the order
+    When I see order confirmation message
+    Then I should be able to download the invoice
 

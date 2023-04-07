@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
 
+
 class PaymentPage(BasePage):
     # A class that contains all the methods that are used in the payment page.
 
@@ -12,6 +13,7 @@ class PaymentPage(BasePage):
     __EXPIRATION_MONTH_FIELD = (By.XPATH, "//input[contains(@name, 'expiry_month')]")
     __EXPIRATION_YEAR_FIELD = (By.XPATH, "//input[contains(@name, 'expiry_year')]")
     __PAY_AND_CONFIRM_BUTTON = (By.XPATH, "//button[contains(text(), 'Pay and Confirm Order')]")
+    __PAGE_TITLE = (By.XPATH, "//li[contains(@class, 'active')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -19,6 +21,10 @@ class PaymentPage(BasePage):
     def open(self):
         # Opens the payment page.
         super()._open_url(self.__URL)
+
+    def is_payment_page_opened(self):
+        # Returns True if the payment page is opened; otherwise, False.
+        return super()._get_text(self.__PAGE_TITLE) == "Payment"
 
     def enter_payment_information(self, name_on_card, card_number, cvc, expiration_month, expiration_year):
         # Enters the payment information.

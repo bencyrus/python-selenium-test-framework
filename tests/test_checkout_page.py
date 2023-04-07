@@ -1,5 +1,6 @@
 from page_objects.checkout_page import CheckoutPage
 
+
 class TestCheckoutPage:
     # Test cases for the checkout page.
 

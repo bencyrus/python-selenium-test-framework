@@ -1,11 +1,8 @@
 from behave import given, when, then
-from page_objects.main_page import MainPage
-from page_objects.products_page import ProductsPage
 
 
 @given("I am on the main page")
 def step_impl(context):
-    context.main_page = MainPage(context.driver)
     context.main_page.open()
     assert context.main_page.is_main_page_url_correct(), \
         "Not on the main page"
@@ -24,7 +21,6 @@ def step_impl(context):
 
 @then("I should see the All Products title")
 def step_impl(context):
-    context.products_page = ProductsPage(context.driver)
     assert context.products_page.is_all_products_title_displayed(), \
         "All Products title not displayed"
 

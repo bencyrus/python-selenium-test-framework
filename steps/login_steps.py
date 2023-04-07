@@ -1,11 +1,9 @@
 from behave import given, when, then
-from page_objects.login_page import LoginPage
-from page_objects.main_page import MainPage
 
 
 @given("I am on the login page")
 def step_impl(context):
-    context.login_page = LoginPage(context.driver)
+    # context.login_page = LoginPage(context.driver)
     context.login_page.open()
 
 
@@ -21,7 +19,6 @@ def step_impl(context):
 
 @then("I should be redirected to the main page with the title {title}")
 def step_impl(context, title):
-    context.main_page = MainPage(context.driver)
     assert context.main_page.is_main_page_url_correct(), \
         "Not redirected to main page"
     assert context.main_page.is_main_page_title_correct(title), \
