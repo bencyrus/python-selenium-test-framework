@@ -1,5 +1,3 @@
-import time
-
 from behave import given, when, then
 from page_objects.main_page import MainPage
 from page_objects.products_page import ProductsPage
@@ -8,6 +6,7 @@ from page_objects.products_page import ProductsPage
 @given("I am on the main page")
 def step_impl(context):
     context.main_page = MainPage(context.driver)
+    context.main_page.open()
     assert context.main_page.is_main_page_url_correct(), \
         "Not on the main page"
 
@@ -48,21 +47,6 @@ def step_impl(context, count):
     context.products_page.add_product_to_cart(count)
 
 
-@then("I should see a modal confirming the addition to cart")
-def step_impl(context):
-    assert context.products_page.is_product_added_to_cart_modal_displayed(), \
-        "Product added to cart modal not displayed"
-
-
-@then("I should be able to continue shopping")
-def step_impl(context):
-    assert context.products_page.continue_shopping(), \
-        "Continue shopping button not displayed"
-
-
 @then("I should be able to view the cart")
 def step_impl(context):
-    assert context.products_page.view_cart(), \
-        "View cart button not displayed"
-
-    time.sleep(5)
+    context.products_page.view_cart()

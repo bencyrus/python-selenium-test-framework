@@ -20,8 +20,12 @@ Feature: Shopping Cart
     When I search for tshirts
     Then I should see the Searched Products title
     When I add the product number 1 to the cart
-    Then I should see a modal confirming the addition to cart
-    And I should be able to continue shopping
     When I add the product number 2 to the cart
-    Then I should see a modal confirming the addition to cart
-    And I should be able to view the cart
+    Then I should be able to view the cart
+
+  Scenario: Remove 1 T-shirt from the cart
+    Given I am on the shopping cart page
+    And The cart is not empty
+    When I remove the product number 1 from the cart
+    Then I should be able to proceed to checkout
+

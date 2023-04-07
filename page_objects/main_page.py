@@ -16,7 +16,7 @@ class MainPage(BasePage):
 
     def open(self):
         # Opens the login page.
-        super().open_url(self.__URL)
+        super()._open_url(self.__URL)
 
     def get_title(self):
         return super()._get_text(self.__PAGE_TITLE)
@@ -49,9 +49,6 @@ class MainPage(BasePage):
     def open_products_page(self):
         # Opens the products page.
         super()._click(self.__PRODUCTS_BUTTON)
-        super()._wait(5)
         if "#google_vignette" in self.driver.current_url:
-            print("Ad displayed")
-            print("the element: ", super()._find_element((By.XPATH, "//div[contains(@id, 'dismiss-button')]")))
-            super()._click((By.XPATH, "//div[contains(@id, 'dismiss-button')]"))
-            print("Clicked on the ad")
+            super()._go_back()
+            super()._click(self.__PRODUCTS_BUTTON)

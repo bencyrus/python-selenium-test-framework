@@ -40,3 +40,7 @@ class ShoppingCartPage(BasePage):
     def open_login_page(self):
         # Opens the login page.
         super()._click(self.__CHECKOU_MODAL_LOGIN_BUTTON)
+
+    def is_shopping_cart_page_opened(self):
+        # Returns True if the shopping cart page is opened; otherwise, False.
+        return self.__URL in super()._get_current_url()

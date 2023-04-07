@@ -48,6 +48,7 @@ class BasePage:
     def _click(self, locator: tuple, timeout: int = 10) -> None:
         # Clicks on a button.
         self._wait_for_visible_element(locator, timeout)
+        self._scroll_to_element(locator, timeout)
         self._find_element(locator).click()
 
     def _is_displayed(self, locator: tuple, timeout: int = 10) -> bool:
@@ -67,3 +68,7 @@ class BasePage:
     def _wait(self, seconds: int = 3) -> None:
         # Waits for a number of seconds.
         self.driver.implicitly_wait(seconds)
+
+    def _go_back(self) -> None:
+        # Goes back to the previous page.
+        self.driver.back()

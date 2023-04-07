@@ -55,7 +55,8 @@ class ProductsPage(BasePage):
 
     def continue_shopping(self):
         # Clicks the continue shopping button.
-        time.sleep(3)
+        super()._click(self.__CONTINUE_SHOPPING_BUTTON)  # click the continue shopping button
+        super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL)  # wait for the modal to be displayed
         super()._click(self.__CONTINUE_SHOPPING_BUTTON)  # click the continue shopping button
 
     def view_cart(self):
