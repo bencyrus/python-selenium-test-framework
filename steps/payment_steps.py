@@ -1,5 +1,4 @@
 from behave import given, when, then
-from behave.model import Table
 
 
 @given("I am on the payment page")

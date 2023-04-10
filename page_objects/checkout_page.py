@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
 
+
 class CheckoutPage(BasePage):
     # A class that contains all the methods that are used in the checkout page.
 
@@ -17,5 +18,7 @@ class CheckoutPage(BasePage):
 
     def execute_place_order(self):
         # Executes a product search in the application.
-        super()._scroll_to_element(self.__PLACE_ORDER_BUTTON)
         super()._click(self.__PLACE_ORDER_BUTTON)
+        if "#google_vignette" in self.driver.current_url:
+            super()._go_back()
+            super()._click(self.__PLACE_ORDER_BUTTON)

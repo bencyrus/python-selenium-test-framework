@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage\
 
 
+
 class ProductsPage(BasePage):
     # A class that contains all the methods that are used in the product page.
 
@@ -44,20 +45,10 @@ class ProductsPage(BasePage):
         # Returns True if the searched product is displayed; otherwise, False.
         return super()._is_displayed(self.__PRODUCT_SEARCH_RESULTS)
 
-    def is_product_added_to_cart_modal_displayed(self):
-        # Returns True if the product added to cart modal is displayed; otherwise, False.
-        return super()._is_displayed(self.__ADDED_PRODUCT_TO_CART_MODAL)
-
     def add_product_to_cart(self, product_index):
         # Adds a specified product to the cart.
         xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{product_index + 1}]"
         super()._click((By.XPATH, xpath))  # click add the product
-
-    def continue_shopping(self):
-        # Clicks the continue shopping button.
-        super()._click(self.__CONTINUE_SHOPPING_BUTTON)  # click the continue shopping button
-        super()._wait_for_visible_element(self.__ADDED_PRODUCT_TO_CART_MODAL)  # wait for the modal to be displayed
-        super()._click(self.__CONTINUE_SHOPPING_BUTTON)  # click the continue shopping button
 
     def view_cart(self):
         # Clicks the view cart button.

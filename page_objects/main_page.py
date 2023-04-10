@@ -18,18 +18,6 @@ class MainPage(BasePage):
         # Opens the login page.
         super()._open_url(self.__URL)
 
-    def get_title(self):
-        return super()._get_text(self.__PAGE_TITLE)
-
-    def expected_user_name(self, user_name):
-        # Returns the expected user's name and prints a message with it.
-        print("The expected user's name is: " + user_name)
-        return user_name
-
-    def get_user_name(self):
-        # Returns the user's name of the logged-in user and prints a message with it.
-        return super()._get_text(self.__USER_NAME)
-
     def is_logout_button_visible(self):
         # Returns a boolean indicating whether the logout button is visible.
         return super()._is_displayed(self.__LOGOUT_BUTTON)
