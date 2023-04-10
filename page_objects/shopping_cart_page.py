@@ -33,10 +33,6 @@ class ShoppingCartPage(BasePage):
         # Clicks the checkout button.
         super()._click(self.__CHECKOUT_BUTTON)
 
-    def is_checkout_modal_displayed(self):
-        # Returns True if the checkout modal is displayed; otherwise, False.
-        return super()._is_displayed(self.__CHECKOU_MODAL_LOGIN_BUTTON)
-
-    def open_login_page(self):
-        # Opens the login page.
-        super()._click(self.__CHECKOU_MODAL_LOGIN_BUTTON)
+    def is_shopping_cart_page_opened(self):
+        # Returns True if the shopping cart page is opened; otherwise, False.
+        return self.__URL in super()._get_current_url()
