@@ -4,7 +4,7 @@ from behave import given, when, then
 @given("I am on the payment page")
 def step_impl(context):
     assert context.payment_page.is_payment_page_opened(), \
-        "Payment page not opened"
+        "Payment page not opened because page title is not correct. Current title: " + context.payment_page.get_page_title() + ". "+ "Expected title: Payment."
 
 
 @when("I enter the credit card information with the following details")

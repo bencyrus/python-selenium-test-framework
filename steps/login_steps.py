@@ -7,7 +7,7 @@ def step_impl(context):
     context.login_page.open()
 
 
-@when("I execute login with {email} as email and {password} as password")
+@when('I execute login with "{email}" as email and "{password}" as password')
 def step_impl(context, email, password):
     context.login_page.execute_login(email, password)
 
@@ -20,9 +20,9 @@ def step_impl(context):
 @then("I should be redirected to the main page with the title {title}")
 def step_impl(context, title):
     assert context.main_page.is_main_page_url_correct(), \
-        "Not redirected to main page"
+        "Not redirected to main page because URL is not correct. Current URL: " + context.driver.current_url + ". "+ "Expected URL: " + context.main_page.get_main_page_url() + "."
     assert context.main_page.is_main_page_title_correct(title), \
-        "Incorrect main page title"
+        "Incorrect main page title. Current title: " + context.main_page.get_main_page_title() + ". "+ "Expected title: " + title + "."
 
 
 @then("I should see the logout button")
@@ -33,4 +33,4 @@ def step_impl(context):
 @then("the user name should be {user_name}")
 def step_impl(context, user_name):
     assert context.main_page.is_user_name_correct(user_name), \
-        "Incorrect user name displayed"
+        "Incorrect user name displayed. Current user name: " + context.main_page.get_user_name() + ". "+ "Expected user name: " + user_name + "."

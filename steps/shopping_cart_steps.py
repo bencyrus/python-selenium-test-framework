@@ -4,7 +4,7 @@ from behave import given, when, then
 @given("I am on the shopping cart page")
 def step_impl(context):
     assert context.shopping_cart_page.is_shopping_cart_page_opened(), \
-        "Shopping cart page not opened"
+        "Shopping cart page not opened. Current URL: " + context.driver.current_url + ". "+ "Expected URL: " + context.shopping_cart_page.get_shopping_cart_page_url() + "."
 
 
 @given("The cart is not empty")

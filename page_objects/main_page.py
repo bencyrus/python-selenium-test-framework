@@ -21,14 +21,26 @@ class MainPage(BasePage):
     def is_logout_button_visible(self):
         # Returns a boolean indicating whether the logout button is visible.
         return super()._is_displayed(self.__LOGOUT_BUTTON)
+    
+    def get_main_page_url(self):
+        # Returns the main page URL.
+        return self.__URL
 
     def is_main_page_url_correct(self):
         # Returns a boolean indicating whether the main page URL is correct.
         return self.__URL == self.driver.current_url
+    
+    def get_user_name(self):
+        # Returns the user name.
+        return super()._get_text(self.__USER_NAME)
 
     def is_user_name_correct(self, user_name):
         # Returns a boolean indicating whether the user's name is correct.
         return user_name in super()._get_text(self.__USER_NAME)
+    
+    def get_main_page_title(self):
+        # Returns the main page title.
+        return super()._get_text(self.__PAGE_TITLE)
 
     def is_main_page_title_correct(self, expected_title):
         # Returns a boolean indicating whether the main page title is correct.
