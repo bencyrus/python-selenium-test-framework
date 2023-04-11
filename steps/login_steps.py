@@ -7,7 +7,7 @@ def step_impl(context):
     context.login_page.open()
 
 
-@when("I execute login with {email} as email and {password} as password")
+@when('I execute login with "{email}" as email and "{password}" as password')
 def step_impl(context, email, password):
     context.login_page.execute_login(email, password)
 
