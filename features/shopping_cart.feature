@@ -2,12 +2,12 @@ Feature: Shopping Cart
 
   Scenario: Login with invalid credentials
     Given I am on the login page
-    When I execute login with invalidemail@test.com as email and invalid_password as password
+    When I execute login with "invalidemail@test.com" as email and "invalid_password" as password
     Then I should see a login failed message
 
   Scenario: Login with valid credentials
     Given I am on the login page
-    When I execute login with mahdi.mohaghegh2001@gmail.com as email and 12345678 as password
+    When I execute login with "mahdi.mohaghegh2001@gmail.com" as email and "12345678" as password
     Then I should be redirected to the main page with the title Automation
     And I should see the logout button
     And the user name should be Ben Cyrus
