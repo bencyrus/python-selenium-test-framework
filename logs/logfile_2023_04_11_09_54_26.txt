@@ -1,0 +1,45 @@
+2023-04-11 09:54:26,178 - LoginPage - INFO - Opening the login page.
+2023-04-11 09:54:30,691 - LoginPage - INFO - Executing login.
+2023-04-11 09:54:30,692 - LoginPage - INFO - Entering email: invalidemail@test.com
+2023-04-11 09:54:30,815 - LoginPage - INFO - Entering password: invalid_password
+2023-04-11 09:54:30,860 - LoginPage - INFO - Clicking the login button.
+2023-04-11 09:54:33,534 - LoginPage - INFO - Checking if the login failed message is displayed.
+2023-04-11 09:54:33,549 - LoginPage - INFO - Login failed message is displayed.
+2023-04-11 09:54:33,550 - LoginPage - INFO - Opening the login page.
+2023-04-11 09:54:36,330 - LoginPage - INFO - Executing login.
+2023-04-11 09:54:36,330 - LoginPage - INFO - Entering email: mahdi.mohaghegh2001@gmail.com
+2023-04-11 09:54:36,388 - LoginPage - INFO - Entering password: 12345678
+2023-04-11 09:54:36,431 - LoginPage - INFO - Clicking the login button.
+2023-04-11 09:54:38,441 - MainPage - INFO - Checking if the main page URL is correct.
+2023-04-11 09:54:38,443 - MainPage - INFO - Checking if the main page title is 'Automation'.
+2023-04-11 09:54:38,461 - MainPage - INFO - Checking if the logout button is visible.
+2023-04-11 09:54:38,475 - MainPage - INFO - Checking if the user name 'Ben Cyrus' is correct.
+2023-04-11 09:54:38,490 - MainPage - INFO - Opening the main page.
+2023-04-11 09:54:40,868 - MainPage - INFO - Checking if the main page URL is correct.
+2023-04-11 09:54:40,869 - MainPage - INFO - Checking if the user name 'Ben Cyrus' is correct.
+2023-04-11 09:54:40,882 - MainPage - INFO - Opening the products page.
+2023-04-11 09:54:42,924 - ProductsPage - INFO - Checking if the 'All Products' title is displayed.
+2023-04-11 09:54:42,944 - ProductsPage - INFO - Executing a product search.
+2023-04-11 09:54:42,944 - ProductsPage - INFO - Entering product name: tshirts
+2023-04-11 09:54:43,019 - ProductsPage - INFO - Clicking the search button.
+2023-04-11 09:54:45,481 - ProductsPage - INFO - Checking if the 'Searched Products' title is displayed.
+2023-04-11 09:54:45,509 - ProductsPage - INFO - Checking if the product search results are displayed.
+2023-04-11 09:54:45,526 - ProductsPage - INFO - Adding product number 1 to the cart.
+2023-04-11 09:54:45,585 - ProductsPage - INFO - Adding product number 2 to the cart.
+2023-04-11 09:54:45,624 - ProductsPage - INFO - Clicking the 'View Cart' button.
+2023-04-11 09:54:46,934 - ShoppingCartPage - INFO - Checking if the shopping cart page is opened.
+2023-04-11 09:54:46,936 - ShoppingCartPage - INFO - Checking if the cart is empty.
+2023-04-11 09:54:47,977 - ShoppingCartPage - INFO - Cart is not empty.
+2023-04-11 09:54:47,984 - ShoppingCartPage - INFO - Deleting an item from the cart.
+2023-04-11 09:54:48,049 - ShoppingCartPage - INFO - Proceeding to checkout.
+2023-04-11 09:54:50,281 - CheckoutPage - INFO - Clicking the Place Order button.
+2023-04-11 09:54:53,682 - PaymentPage - INFO - Checking if the payment page is opened.
+2023-04-11 09:54:53,700 - PaymentPage - INFO - Entering payment information.
+2023-04-11 09:54:53,700 - PaymentPage - INFO - Entering name on card: Ben Cyrus
+2023-04-11 09:54:53,753 - PaymentPage - INFO - Entering card number: 4242424242424242
+2023-04-11 09:54:53,819 - PaymentPage - INFO - Entering CVC: 123
+2023-04-11 09:54:53,863 - PaymentPage - INFO - Entering expiration month: 12
+2023-04-11 09:54:53,904 - PaymentPage - INFO - Entering expiration year: 2026
+2023-04-11 09:54:53,946 - PaymentPage - INFO - Clicking the 'Pay and Confirm Order' button.
+2023-04-11 09:54:57,513 - PaymentDonePage - INFO - Checking if the order confirmation message is displayed.
+2023-04-11 09:54:57,532 - PaymentDonePage - INFO - Downloading the invoice.
