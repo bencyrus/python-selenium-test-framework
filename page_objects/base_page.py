@@ -19,8 +19,8 @@ class BasePage:
     def _create_logger(self) -> logging.Logger:
         # Creates a logger instance and configures it.
         # The log file name is based on the current date and time.
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.DEBUG)
+        logger = logging.getLogger(self.__class__.__name__)
+        logger.setLevel(logging.INFO)
 
         if not logger.handlers:
             log_file_name = datetime.now().strftime("logs/logfile_%Y_%m_%d_%H_%M_%S.txt")
@@ -86,4 +86,4 @@ class BasePage:
 
     def _log(self, message: str) -> None:
         # Logs a given message using the logger instance.
-        self.logger.debug(message)
+        self.logger.info(message)

@@ -15,15 +15,19 @@ class PaymentDonePage(BasePage):
 
     def open(self):
         # Opens the payment page.
+        super()._log("Opening the payment done page.")
         super()._open_url(self.__URL)
 
     def is_order_confirmation_message_displayed(self):
         # Returns True if the order confirmation message is displayed; otherwise, False.
+        super()._log("Checking if the order confirmation message is displayed.")
         try:
             return super()._is_displayed(self.__ORDER_CONFIRMATION_MESSAGE, 1)
         except TimeoutException:
+            super()._log("Order confirmation message not displayed within the given time.")
             return False
     
     def download_invoice(self):
         # Downloads the invoice.
+        super()._log("Downloading the invoice.")
         super()._click(self.__DOWNLOAD_INVOICE_BUTTON)
