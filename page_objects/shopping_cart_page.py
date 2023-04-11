@@ -33,6 +33,10 @@ class ShoppingCartPage(BasePage):
         # Clicks the checkout button.
         super()._click(self.__CHECKOUT_BUTTON)
 
+    def get_shopping_cart_page_url(self):
+        # Returns the shopping cart URL.
+        return self.__URL
+
     def is_shopping_cart_page_opened(self):
         # Returns True if the shopping cart page is opened; otherwise, False.
         return self.__URL in super()._get_current_url()

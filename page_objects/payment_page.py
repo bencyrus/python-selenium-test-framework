@@ -22,6 +22,10 @@ class PaymentPage(BasePage):
         # Opens the payment page.
         super()._open_url(self.__URL)
 
+    def get_page_title(self):
+        # Returns the payment page title.
+        return super()._get_text(self.__PAGE_TITLE)
+
     def is_payment_page_opened(self):
         # Returns True if the payment page is opened; otherwise, False.
         return super()._get_text(self.__PAGE_TITLE) == "Payment"
