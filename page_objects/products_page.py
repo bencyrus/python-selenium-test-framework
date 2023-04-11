@@ -2,8 +2,7 @@ import time
 
 from selenium.webdriver.common.by import By
 
-from page_objects.base_page import BasePage\
-
+from page_objects.base_page import BasePage
 
 
 class ProductsPage(BasePage):
@@ -15,7 +14,7 @@ class ProductsPage(BasePage):
     __SEARCH_BUTTON = (By.XPATH, "//button[@id='submit_search']")
     __SEARCHED_PRODUCT_TITLE = (By.XPATH, "//h2[contains(text(), 'Searched Products')]")
     __PRODUCT_SEARCH_RESULTS = (
-    By.XPATH, "(//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')])")
+        By.XPATH, "(//div[contains(@class, 'productinfo')]//a[contains(text(), 'Add to cart')])")
     __ADDED_PRODUCT_TO_CART_MODAL = (By.XPATH, "//div[contains(@id, 'cartModal')]")
     __CONTINUE_SHOPPING_BUTTON = (
         By.XPATH, "//button[contains(text(), 'Continue Shopping')]")
@@ -26,30 +25,39 @@ class ProductsPage(BasePage):
 
     def open(self):
         # Opens the product page.
+        super()._log("Opening the products page.")
         super()._open_url(self.__URL)
 
     def is_all_products_title_displayed(self):
         # Returns True if the product name is displayed; otherwise, False.
+        super()._log("Checking if the 'All Products' title is displayed.")
         return super()._is_displayed(self.__ALL_PRODUCTS_TITLE)
 
     def execute_product_search(self, product_name):
         # Executes a product search in the application.
+        super()._log("Executing a product search.")
+        super()._log(f"Entering product name: {product_name}")
         super()._type(self.__SEARCH_FIELD, product_name)
+        super()._log("Clicking the search button.")
         super()._click(self.__SEARCH_BUTTON)
 
     def is_searched_products_title_displayed(self):
         # Returns True if the searched product is displayed; otherwise, False.
+        super()._log("Checking if the 'Searched Products' title is displayed.")
         return super()._is_displayed(self.__SEARCHED_PRODUCT_TITLE)
 
     def is_product_search_results_displayed(self):
         # Returns True if the searched product is displayed; otherwise, False.
+        super()._log("Checking if the product search results are displayed.")
         return super()._is_displayed(self.__PRODUCT_SEARCH_RESULTS)
 
     def add_product_to_cart(self, product_index):
         # Adds a specified product to the cart.
+        super()._log(f"Adding product number {product_index} to the cart.")
         xpath = f"{self.__PRODUCT_SEARCH_RESULTS[1]}[{product_index + 1}]"
         super()._click((By.XPATH, xpath))  # click add the product
 
     def view_cart(self):
         # Clicks the view cart button.
+        super()._log("Clicking the 'View Cart' button.")
         super()._click(self.__VIEW_CART_BUTTON)

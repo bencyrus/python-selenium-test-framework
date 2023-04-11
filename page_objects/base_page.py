@@ -1,3 +1,5 @@
+import logging
+from datetime import datetime
 from typing import List
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -12,6 +14,22 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.logger = self._create_logger()
+
+    def _create_logger(self) -> logging.Logger:
+        # Creates a logger instance and configures it.
+        # The log file name is based on the current date and time.
+        logger = logging.getLogger(self.__class__.__name__)
+        logger.setLevel(logging.INFO)
+
+        if not logger.handlers:
+            log_file_name = datetime.now().strftime("logs/logfile_%Y_%m_%d_%H_%M_%S.txt")
+            file_handler = logging.FileHandler(log_file_name)
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            file_handler.setFormatter(formatter)
+            logger.addHandler(file_handler)
+
+        return logger
 
     def _open_url(self, url: str) -> None:
         # Opens a URL in the browser.
@@ -65,3 +83,7 @@ class BasePage:
     def _go_back(self) -> None:
         # Goes back to the previous page.
         self.driver.back()
+
+    def _log(self, message: str) -> None:
+        # Logs a given message using the logger instance.
+        self.logger.info(message)
