@@ -28,4 +28,5 @@ class LoginPage(BasePage):
 
     def is_login_failed_message_displayed(self):
         # Returns True if the login failed message is displayed; otherwise, False.
+        super()._log("Checking if the login failed message is displayed.")
         return super()._is_displayed(self.__LOGIN_FAILED_MESSAGE)

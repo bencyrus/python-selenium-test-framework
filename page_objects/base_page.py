@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -65,3 +66,8 @@ class BasePage:
     def _go_back(self) -> None:
         # Goes back to the previous page.
         self.driver.back()
+
+    def _log(self, message: str) -> None:
+        # Logs a message.
+        logging.basicConfig(filename="../logs/logs.txt")
+        logging.info(message)
