@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from page_objects.base_page import BasePage
 
+
 class LoginPage(BasePage):
     # A class that contains all the methods that are used in the login page.
 
@@ -19,6 +20,16 @@ class LoginPage(BasePage):
         # Opens the login page.
         super()._log("Opening the login page.")
         super()._open_url(self.__URL)
+
+    def is_login_page_url_correct(self):
+        # Returns a boolean indicating whether the login page URL is correct.
+        super()._log("Checking if the login page URL is correct.")
+        return self.__URL in super()._get_current_url()
+    
+    def get_login_page_url(self):
+        # Returns the login page URL.
+        super()._log("Getting the login page URL.")
+        return self.__URL
 
     def execute_login(self, email, password):
         # Executes a login in the application.

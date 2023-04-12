@@ -3,11 +3,13 @@ from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 
+
 class PaymentDonePage(BasePage):
     # A class that contains all the methods that are used in the payment page.
 
     __URL = "https://automationexercise.com/payment_done"
-    __ORDER_CONFIRMATION_MESSAGE = (By.XPATH, "//p[contains(text(), 'Congratulations! Your order has been confirmed!')]")
+    __ORDER_CONFIRMATION_MESSAGE = (
+    By.XPATH, "//p[contains(text(), 'Congratulations! Your order has been confirmed!')]")
     __DOWNLOAD_INVOICE_BUTTON = (By.XPATH, "//a[contains(@href, 'download_invoice')]")
 
     def __init__(self, driver):
@@ -26,7 +28,7 @@ class PaymentDonePage(BasePage):
         except TimeoutException:
             super()._log("Order confirmation message not displayed within the given time.")
             return False
-    
+
     def download_invoice(self):
         # Downloads the invoice.
         super()._log("Downloading the invoice.")

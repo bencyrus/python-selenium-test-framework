@@ -6,7 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="7cee95eb-be0c-47de-b57e-927b5d3bff98" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/5c92394f-2f41-457f-b189-00834ca81314-attachment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/8c67d314-d634-4cff-8ed0-7bbd3f6f380e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/9551dc7b-3270-4a15-95c8-1b6ef6bb2c1b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/99e1c764-b282-4a44-a886-c92101fa595e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/a8286917-7395-475b-9446-6a556c3af67f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_50_41/e1c8b6d2-740d-4aca-ae86-7193b33fb19f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/0a63db28-1762-4e77-9456-f73539d497dd-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/1953fda7-85f5-44e8-afac-3ae1e109ad35-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/830991b6-4d6f-429e-93a1-514d9b9e5a12-attachment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/8b7119f2-252f-4da1-8198-f6047bdc1449-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/afc69b9d-0a94-4852-850d-f82e6825caa6-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_11_09_54_24/f4d76e46-c088-49ab-831b-b2c5434fcb94-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_12_06_16_14/6bf3db95-c8b8-4595-a698-fd760aed52da-attachment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allure_reports/run_2023_04_12_06_16_14/e7ec7bce-7b92-47e3-8b6e-c73bafe320e8-result.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/features/shopping_cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/shopping_cart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logfile_2023_04_11_09_50_43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logfile_2023_04_11_09_54_26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logfile_2023_04_12_06_16_33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/payment_done_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/payment_done_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/shopping_cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/shopping_cart_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steps/login_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/steps/login_steps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steps/product_seslection_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/steps/product_seslection_steps.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

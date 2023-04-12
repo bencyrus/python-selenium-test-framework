@@ -1,7 +1,9 @@
 Feature: Shopping Cart
 
-  Scenario: Login with invalid credentials
-    Given I am on the login page
+  Scenario: Login, add products to cart, remove one product, and proceed to payment
+    Given I am on the main page
+    When I open the login page
+    Then The login page should be opened
     When I execute login with "invalidemail@test.com" as email and "invalid_password" as password
     Then I should see a login failed message
     When I execute login with "mahdi.mohaghegh2001@gmail.com" as email and "12345678" as password

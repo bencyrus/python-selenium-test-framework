@@ -1,13 +1,6 @@
 from behave import given, when, then
 
 
-@given("I am on the main page")
-def step_impl(context):
-    context.main_page.open()
-    assert context.main_page.is_main_page_url_correct(), \
-        "Not redirected to main page because URL is not correct. Current URL: " + context.driver.current_url + ". "+ "Expected URL: " + context.main_page.get_main_page_url() + "."
-
-
 @given("I am logged in successfully with the user name {user_name}")
 def step_impl(context, user_name):
     assert context.main_page.is_user_name_correct(user_name), \

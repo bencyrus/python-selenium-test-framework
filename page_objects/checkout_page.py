@@ -22,7 +22,7 @@ class CheckoutPage(BasePage):
         super()._log("Clicking the Place Order button.")
         super()._click(self.__PLACE_ORDER_BUTTON)
         
-        if "#google_vignette" in self.driver.current_url:
+        if "#google_vignette" in super()._get_current_url():
             super()._log("Google Ads encountered. Going back and trying again.")
             super()._go_back()
             super()._log("Clicking the Place Order button.")
