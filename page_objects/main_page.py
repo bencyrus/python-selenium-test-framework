@@ -6,6 +6,7 @@ from page_objects.base_page import BasePage
 class MainPage(BasePage):
     # A class that contains all the methods that are used in the main page of the application.
     __URL = "https://automationexercise.com/"
+    __LOGIN_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'login')]")
     __LOGOUT_BUTTON = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(@href, 'logout')]")
     __USER_NAME = (By.XPATH, "//ul[contains(@class, 'nav')]//a[contains(text(), 'Logged in as')]/b")
     __PAGE_TITLE = (By.XPATH, "//section[contains(@id, 'slider')]//span[contains(text(), 'Automation')]")
@@ -32,7 +33,7 @@ class MainPage(BasePage):
     def is_main_page_url_correct(self):
         # Returns a boolean indicating whether the main page URL is correct.
         super()._log("Checking if the main page URL is correct.")
-        return self.__URL == self.driver.current_url
+        return self.__URL == super()._get_current_url()
     
     def get_user_name(self):
         # Returns the user name.
@@ -59,8 +60,19 @@ class MainPage(BasePage):
         super()._log("Opening the products page.")
         super()._click(self.__PRODUCTS_BUTTON)
         
-        if "#google_vignette" in self.driver.current_url:
+        if "#google_vignette" in super()._get_current_url():
             super()._log("Google Ads encountered. Going back and trying again.")
             super()._go_back()
             super()._log("Opening the products page.")
             super()._click(self.__PRODUCTS_BUTTON)
+
+    def open_login_page(self):
+        # Opens the login page.
+        super()._log("Opening the login page.")
+        super()._click(self.__LOGIN_BUTTON)
+        
+        if "#google_vignette" in super()._get_current_url():
+            super()._log("Google Ads encountered. Going back and trying again.")
+            super()._go_back()
+            super()._log("Opening the login page.")
+            super()._click(self.__LOGIN_BUTTON)

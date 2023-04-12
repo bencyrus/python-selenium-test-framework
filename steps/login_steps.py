@@ -1,10 +1,22 @@
 from behave import given, when, then
 
 
-@given("I am on the login page")
+@given("I am on the main page")
 def step_impl(context):
-    # context.login_page = LoginPage(context.driver)
-    context.login_page.open()
+    context.main_page.open()
+    assert context.main_page.is_main_page_url_correct(), \
+        "Not redirected to main page because URL is not correct. Current URL: " + context.driver.current_url + ". "+ "Expected URL: " + context.main_page.get_main_page_url() + "."
+    
+
+@when("I open the login page")
+def step_impl(context):
+    context.main_page.open_login_page()
+
+
+@then("The login page should be opened")
+def step_impl(context):
+    assert context.login_page.is_login_page_url_correct(), \
+        "Login page not opened because page url is not correct. Current URL: " + context.driver.current_url + ". "+ "Expected URL: " + context.login_page.get_login_page_url() + "."
 
 
 @when('I execute login with "{email}" as email and "{password}" as password')

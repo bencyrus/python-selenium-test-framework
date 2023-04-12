@@ -1,20 +1,15 @@
 Feature: Shopping Cart
 
-  Scenario: Login with invalid credentials
-    Given I am on the login page
+  Scenario: Login, add products to cart, remove one product, and proceed to payment
+    Given I am on the main page
+    When I open the login page
+    Then The login page should be opened
     When I execute login with "invalidemail@test.com" as email and "invalid_password" as password
     Then I should see a login failed message
-
-  Scenario: Login with valid credentials
-    Given I am on the login page
     When I execute login with "mahdi.mohaghegh2001@gmail.com" as email and "12345678" as password
     Then I should be redirected to the main page with the title Automation
     And I should see the logout button
     And the user name should be Ben Cyrus
-
-  Scenario: Select 2 T-Shirts and add to cart
-    Given I am on the main page
-    And I am logged in successfully with the user name Ben Cyrus
     When I open the products page
     Then I should see the All Products title
     When I search for tshirts
@@ -22,15 +17,11 @@ Feature: Shopping Cart
     When I add the product number 1 to the cart
     When I add the product number 2 to the cart
     Then I should be able to view the cart
-
-  Scenario: Remove 1 T-shirt from the cart and proceed to checkout
     Given I am on the shopping cart page
     And The cart is not empty
     When I remove the product number 1 from the cart
     Then I should be able to proceed to checkout
     Then I should be able to place the order
-
-  Scenario: Pay with a credit card
     Given I am on the payment page
     When I enter the credit card information with the following details
       | field       | value            |
