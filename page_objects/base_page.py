@@ -64,7 +64,8 @@ class BasePage:
         # Clicks on a button.
         self._wait_for_visible_element(locator, timeout)
         self._scroll_to_element(locator, timeout)
-        self._find_element(locator).click()
+        element = self._find_element(locator)
+        self.driver.execute_script("arguments[0].click();", element)
 
     def _is_displayed(self, locator: tuple, timeout: int = 10) -> bool:
         # Checks if an element is displayed in the page.
