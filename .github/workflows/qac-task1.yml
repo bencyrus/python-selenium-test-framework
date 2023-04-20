@@ -1,4 +1,4 @@
-name: Run Selenium tests with behave and Allure reporting
+name: QAC training project CI
 
 on:
   push:
@@ -11,29 +11,44 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Install Chrome and ChromeDriver
+
+    - name: Install dependencies
       run: |
-        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-        sudo apt-get update && sudo apt-get install google-chrome-stable
-        LATEST_CHROMEDRIVER=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
-        wget "https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip"
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Set up Chrome Driver and Chromium
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser
+        CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        wget https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin/
-        sudo chown root:root /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
-    - name: Run tests with behave and Allure reporting
+
+    - name: Create and activate virtual environment
       run: |
-        timestamp=$(date +%Y_%m_%d_%H_%M_%_S)
-        report_directory="allure_reports/run_${timestamp}"
-        mkdir -p "$report_directory"
-        behave -f allure_behave.formatter:AllureFormatter -o "$report_directory" -f pretty
+        python -m venv env
+        source env/bin/activate
+
+    - name: Run tests
+      run: |
+        source env/bin/activate
+        chmod +x run_tests.sh
+        ./run_tests.sh
+
+    - name: Upload Allure reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-reports
+        path: allure_reports/
