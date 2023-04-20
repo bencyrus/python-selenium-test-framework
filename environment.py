@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from page_objects.login_page import LoginPage
 from page_objects.main_page import MainPage
 from page_objects.products_page import ProductsPage
@@ -10,7 +11,13 @@ from page_objects.payment_done_page import PaymentDonePage
 
 def before_all(context):
     # Create a webdriver instance (replace with your preferred browser)
-    context.driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1280x800")
+
+    context.driver = webdriver.Chrome(options=chrome_options)
+
     context.login_page = LoginPage(context.driver)
     context.main_page = MainPage(context.driver)
     context.products_page = ProductsPage(context.driver)
