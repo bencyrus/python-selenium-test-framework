@@ -53,10 +53,11 @@ jobs:
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
-        git remote set-url origin "https://github-actions[bot]:${{ secrets.GH_TOKEN }}@github.com/bencyrus/qac-project.git"
+        git remote set-url origin "https://${{ secrets.GH_TOKEN }}@github.com/bencyrus/qac-project.git"
         git add allure_reports
         git commit -m "Update Allure reports [skip ci]" || echo "No changes to commit"
         git push
+
 
     - name: Upload Allure reports
       uses: actions/upload-artifact@v2
