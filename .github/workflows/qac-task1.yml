@@ -50,13 +50,12 @@ jobs:
         ./run_tests.sh
 
     - name: Commit and push Allure reports
-      uses: ad-m/github-push-action@v2
+      uses: actions-ecosystem/github-push@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
         force: true
         skip_ci: true
-
 
     - name: Upload Allure reports
       uses: actions/upload-artifact@v2
